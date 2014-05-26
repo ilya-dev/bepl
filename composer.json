@@ -3,6 +3,7 @@
     "description": "A Better REPL.",
     "keywords": ["repl", "read", "evaluate", "print", "loop"],
     "license": "MIT",
+    "bin": ["bin/bepl"],
 
     "require": {
         "symfony/console": "2.4.*",
