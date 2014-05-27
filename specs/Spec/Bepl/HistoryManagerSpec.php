@@ -10,4 +10,19 @@ class HistoryManagerSpec extends ObjectBehavior {
         $this->shouldHaveType('Bepl\HistoryManager');
     }
 
+    function it_adds_a_line_to_the_history()
+    {
+        $this->add('foo');
+    }
+
+    function it_saves_the_history()
+    {
+        $this->save();
+    }
+
+    function it_loads_the_history()
+    {
+        $this->load();
+    }
+
 }
