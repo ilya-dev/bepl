@@ -4,8 +4,4 @@
 // TODO: add support for PHARs
 require __DIR__.'/../vendor/autoload.php';
 
-$app = new Symfony\Component\Console\Application('BEPL', 'dev');
-
-// $app->add(new ...);
-
-exit ($app->run());
+(new Bepl\InputListener)->listen();
