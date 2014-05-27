@@ -1,5 +1,7 @@
 <?php namespace Bepl;
 
+use Bepl\Exceptions\HistoryManagerException;
+
 class HistoryManager {
 
     /**
@@ -28,7 +30,7 @@ class HistoryManager {
      */
     public function add($line)
     {
-
+        readline_add_history($line);
     }
 
     /**
@@ -38,7 +40,12 @@ class HistoryManager {
      */
     public function load()
     {
+        $loaded = readline_read_history($this->file);
 
+        if ( ! $loaded)
+        {
+            throw new HistoryManagerException("Unable to load the history from {$this->file}.");
+        }
     }
 
     /**
@@ -48,7 +55,12 @@ class HistoryManager {
      */
     public function save()
     {
+        $saved = readline_write_history($this->file);
 
+        if ( ! $saved)
+        {
+            throw new HistoryManagerException("Unable to save the history to {$this->file}.");
+        }
     }
 
 }
