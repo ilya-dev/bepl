@@ -9,4 +9,14 @@ class DumperSpec extends ObjectBehavior {
         $this->shouldHaveType('Bepl\Dumper');
     }
 
+    function it_dumps_a_string()
+    {
+        $this->dump('foo')->shouldReturn('foo');
+    }
+
+    function it_dumps_an_integer()
+    {
+        $this->dump(256)->shouldReturn('256');
+    }
+
 }
