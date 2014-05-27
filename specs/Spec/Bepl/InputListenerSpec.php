@@ -10,4 +10,9 @@ class InputListenerSpec extends ObjectBehavior {
         $this->shouldHaveType('Bepl\InputListener');
     }
 
+    function it_listens_to_the_users_input()
+    {
+        $this->listen();
+    }
+
 }
