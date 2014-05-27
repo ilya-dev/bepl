@@ -4,4 +4,4 @@
 // TODO: add support for PHARs
 require __DIR__.'/../vendor/autoload.php';
 
-(new Bepl\InputListener)->listen();
+Bepl\Bepl::create('Bepl\InputListener')->listen();
