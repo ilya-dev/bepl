@@ -6,7 +6,6 @@
     "bin": ["bin/bepl"],
 
     "require": {
-        "symfony/console": "2.4.*",
         "php": ">=5.5.0",
         "ext-readline": "*",
         "ext-pcntl": "*",
