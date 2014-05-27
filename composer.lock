@@ -4,9 +4,44 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f65a94515d6c1fe4971d7eb1855e0085",
+    "hash": "7c30795fc675f06b09af911d94ea1702",
     "packages": [
-
+        {
+            "name": "ilya/little",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ilya-dev/little.git",
+                "reference": "c059dc6a0299f1edf97bab778cb4cbf5cdb9731c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ilya-dev/little/zipball/c059dc6a0299f1edf97bab778cb4cbf5cdb9731c",
+                "reference": "c059dc6a0299f1edf97bab778cb4cbf5cdb9731c",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpspec/phpspec": "2.0.*@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Little.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ilya S",
+                    "email": "public.ilya.s@gmail.com"
+                }
+            ],
+            "description": "Laughably simple IoC container",
+            "time": "2014-03-31 05:43:23"
+        }
     ],
     "packages-dev": [
         {
