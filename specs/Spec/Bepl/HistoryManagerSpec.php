@@ -26,3 +26,10 @@ class HistoryManagerSpec extends ObjectBehavior {
     }
 
 }
+
+namespace Bepl;
+
+function readline_add_history($line) {}
+function readline_read_history($file) { return true; }
+function readline_write_history($file) { return true; }
+
