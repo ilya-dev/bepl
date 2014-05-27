@@ -27,18 +27,19 @@ class InputListener {
      */
     public function listen()
     {
-        $this->manager->load();
+        $manager = $this->manager;
 
-        $input = null;
+        $manager->load();
 
-        while ($input !== 'exit')
+        do
         {
             $input = readline('>>> ');
 
-            $this->manager->add($input);
+            $manager->add($input);
         }
+        while ($input != 'exit');
 
-        $this->manager->save();
+        $manager->save();
     }
 
 }
