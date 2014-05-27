@@ -3,6 +3,24 @@
 class HistoryManager {
 
     /**
+     * We store the history in that file.
+     *
+     * @var string
+     */
+    protected $file;
+
+    /**
+     * The constructor.
+     *
+     * @param string|null $file
+     * @return HistoryManager
+     */
+    public function __construct($file = null)
+    {
+        $this->file = $file ?: getenv('HOME').'/.bepl_history';
+    }
+
+    /**
      * Add a line to the history.
      *
      * @param string $line
