@@ -1,7 +1,6 @@
 <?php namespace Spec\Bepl;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class HistoryManagerSpec extends ObjectBehavior {
 
