@@ -36,4 +36,9 @@ class DumperSpec extends ObjectBehavior {
         $this->dump(null)->shouldReturn('null');
     }
 
+    function it_dumps_an_object()
+    {
+        $this->dump(new \stdClass)->shouldMatch('<stdClass:#(\w+)>');
+    }
+
 }
