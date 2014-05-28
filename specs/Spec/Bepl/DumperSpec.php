@@ -19,4 +19,21 @@ class DumperSpec extends ObjectBehavior {
         $this->dump(256)->shouldReturn('256');
     }
 
+    function it_dumps_a_float()
+    {
+        $this->dump(32.256)->shouldReturn('32.256');
+    }
+
+    function it_dumps_a_boolean()
+    {
+        $this->dump(false)->shouldReturn('false');
+
+        $this->dump(true)->shouldReturn('true');
+    }
+
+    function it_dumps_a_null()
+    {
+        $this->dump(null)->shouldReturn('null');
+    }
+
 }

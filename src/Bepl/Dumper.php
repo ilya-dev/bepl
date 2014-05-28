@@ -14,6 +14,11 @@ class Dumper {
         {
             case 'string': return $value;
             case 'integer': return strval($value);
+            case 'double': return strval($value);
+            case 'boolean': return $value ? 'true' : 'false';
+            case 'NULL': return 'null';
+
+            default: die(gettype($value));
         }
     }
 
