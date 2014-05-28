@@ -12,7 +12,7 @@ class Dumper {
     {
         switch (gettype($value))
         {
-            case 'string': return $value;
+            case 'string': return "\"{$value}\"";
             case 'integer': return strval($value);
             case 'double': return strval($value);
             case 'boolean': return $value ? 'true' : 'false';

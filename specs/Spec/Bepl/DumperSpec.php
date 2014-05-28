@@ -11,7 +11,7 @@ class DumperSpec extends ObjectBehavior {
 
     function it_dumps_a_string()
     {
-        $this->dump('foo')->shouldReturn('foo');
+        $this->dump('foo')->shouldReturn('"foo"');
     }
 
     function it_dumps_an_integer()
