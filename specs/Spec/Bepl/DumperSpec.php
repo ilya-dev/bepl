@@ -41,4 +41,12 @@ class DumperSpec extends ObjectBehavior {
         $this->dump(new \stdClass)->shouldMatch('<stdClass:#(\w+)>');
     }
 
+    function it_dumps_an_array()
+    {
+        $result = "[\n  \"foo\" => false,\n  \"bar\" => 42,\n  \"baz\" => \"wow\"\n]\n";
+
+        $this->dump(['foo' => false, 'bar' => 42, 'baz' => 'wow'])
+             ->shouldReturn($result);
+    }
+
 }

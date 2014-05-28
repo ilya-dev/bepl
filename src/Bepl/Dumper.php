@@ -23,6 +23,12 @@ class Dumper {
             case 'integer':
             case 'double':
                 return strval($value);
+            case 'array':
+                foreach ($value as $key => $item)
+                {
+                    $value[$key] = $this->dump($key)." => ".$this->dump($item);
+                }
+                return sprintf("[\n  %s\n]\n", implode(",\n  ", $value));
 
             default: die(gettype($value));
         }
