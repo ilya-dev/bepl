@@ -28,7 +28,7 @@ class Dumper {
                 {
                     $value[$key] = $this->dump($key).' => '.$this->dump($item);
                 }
-                return sprintf("[\n  %s\n]\n", implode(",\n  ", $value));
+                return sprintf("[\n  %s\n]", implode(",\n  ", $value));
 
             default: return '<unknown>';
         }

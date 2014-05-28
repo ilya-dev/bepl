@@ -43,7 +43,7 @@ class DumperSpec extends ObjectBehavior {
 
     function it_dumps_an_array()
     {
-        $result = "[\n  \"foo\" => false,\n  \"bar\" => 42,\n  \"baz\" => \"wow\"\n]\n";
+        $result = "[\n  \"foo\" => false,\n  \"bar\" => 42,\n  \"baz\" => \"wow\"\n]";
 
         $this->dump(['foo' => false, 'bar' => 42, 'baz' => 'wow'])
              ->shouldReturn($result);
