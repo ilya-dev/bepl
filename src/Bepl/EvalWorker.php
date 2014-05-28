@@ -3,6 +3,24 @@
 class EvalWorker {
 
     /**
+     * The Dumper instance.
+     *
+     * @var Dumper
+     */
+    protected $dumper;
+
+    /**
+     * The constructor.
+     *
+     * @param Dumper $dumper
+     * @return EvalWorker
+     */
+    public function __construct(Dumper $dumper)
+    {
+        $this->dumper = $dumper;
+    }
+
+    /**
      * Evaluate a given code.
      *
      * @param string $code
@@ -10,7 +28,9 @@ class EvalWorker {
      */
     public function evaluate($code)
     {
-        return eval ("return {$code};");
+        $result = eval ("return {$code};");
+
+        return sprintf('# => %s', $this->dumper->dump($result));
     }
 
 }
