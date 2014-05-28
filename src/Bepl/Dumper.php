@@ -26,11 +26,11 @@ class Dumper {
             case 'array':
                 foreach ($value as $key => $item)
                 {
-                    $value[$key] = $this->dump($key)." => ".$this->dump($item);
+                    $value[$key] = $this->dump($key).' => '.$this->dump($item);
                 }
                 return sprintf("[\n  %s\n]\n", implode(",\n  ", $value));
 
-            default: die(gettype($value));
+            default: return '<unknown>';
         }
     }
 
