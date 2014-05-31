@@ -22,7 +22,7 @@ class InputListenerSpec extends ObjectBehavior {
 
         $manager->add('foo')->shouldBeCalled();
         $manager->add('bar')->shouldNotBeCalled();
-        $manager->add('baz')->shouldBeCalled();
+        $manager->add('exit')->shouldBeCalled();
 
         $this->listen();
     }
@@ -33,7 +33,7 @@ namespace Bepl;
 
 function readline($prompt)
 {
-    static $input = ['foo', 'logging_off', 'bar', 'logging_on', 'baz'];
+    static $input = ['foo', 'logging_off', 'bar', 'logging_on', 'exit'];
 
     return array_shift($input);
 }

@@ -17,6 +17,13 @@ class InputListener {
     protected $evaluator;
 
     /**
+     * Whether to log your actions.
+     *
+     * @var boolean
+     */
+    protected $forget = false;
+
+    /**
      * The constructor.
      *
      * @param HistoryManager $manager
@@ -45,11 +52,17 @@ class InputListener {
         {
             $input = $this->readLine();
 
-            $result = $this->evaluator->evaluate($input);
+            if ( ! is_null($input))
+            {
+                $result = $this->evaluator->evaluate($input);
 
-            echo $result ? $result.PHP_EOL : null;
+                echo $result ? $result.PHP_EOL : null;
 
-            $manager->add($input);
+                if ( ! $this->forget)
+                {
+                    $manager->add($input);
+                }
+            }
         }
         while ($input != 'exit');
 
@@ -59,11 +72,20 @@ class InputListener {
     /**
      * Read a line.
      *
-     * @return string
+     * @return string|null
      */
     protected function readLine()
     {
-        return readline('>>> ');
+        $line = readline('>>> ');
+
+        if (in_array($line, ['logging_on', 'logging_off']))
+        {
+            $this->forget = ($line == 'logging_off');
+
+            return null;
+        }
+
+        return $line;
     }
 
 }
