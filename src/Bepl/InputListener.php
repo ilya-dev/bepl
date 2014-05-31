@@ -43,7 +43,7 @@ class InputListener {
 
         do
         {
-            $input = readline('>>> ');
+            $input = $this->readLine();
 
             $result = $this->evaluator->evaluate($input);
 
@@ -54,6 +54,16 @@ class InputListener {
         while ($input != 'exit');
 
         $manager->save();
+    }
+
+    /**
+     * Read a line.
+     *
+     * @return string
+     */
+    protected function readLine()
+    {
+        return readline('>>> ');
     }
 
 }
