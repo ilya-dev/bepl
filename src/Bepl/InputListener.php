@@ -56,7 +56,7 @@ class InputListener {
             {
                 $result = $this->evaluator->evaluate($input);
 
-                echo $result ? $result.PHP_EOL : null;
+                $this->displayResult($result);
 
                 if ( ! $this->forget)
                 {
@@ -86,6 +86,17 @@ class InputListener {
         }
 
         return $line;
+    }
+
+    /**
+     * Display a result.
+     *
+     * @param mixed $result
+     * @return void
+     */
+    protected function displayResult($result)
+    {
+        echo $result ? ($result.PHP_EOL) : null;
     }
 
 }
