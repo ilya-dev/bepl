@@ -44,9 +44,7 @@ class InputListener {
      */
     public function listen()
     {
-        $manager = $this->manager;
-
-        $manager->load();
+        $this->manager->load();
 
         do
         {
@@ -60,13 +58,13 @@ class InputListener {
 
                 if ( ! $this->forget)
                 {
-                    $manager->add($input);
+                    $this->manager->add($input);
                 }
             }
         }
         while ($input != 'exit');
 
-        $manager->save();
+        $this->manager->save();
     }
 
     /**
