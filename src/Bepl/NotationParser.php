@@ -10,7 +10,14 @@ class NotationParser {
      */
     public function parse($notation)
     {
-        return ['name' => $notation];
+        if (strpos($notation, '::') === false)
+        {
+            return ['name' => $notation];
+        }
+
+        list($on, $name) = explode('::', $notation);
+
+        return compact('on', 'name');
     }
 
 }
