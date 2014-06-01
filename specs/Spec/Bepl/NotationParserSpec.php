@@ -11,7 +11,7 @@ class NotationParserSpec extends ObjectBehavior {
 
     function it_parses_a_notation_into_an_array()
     {
-
+        $this->parse('some_function')->shouldReturn(['name' => 'some_function']);
     }
 
 }

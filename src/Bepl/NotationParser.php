@@ -10,7 +10,7 @@ class NotationParser {
      */
     public function parse($notation)
     {
-
+        return ['name' => $notation];
     }
 
 }
