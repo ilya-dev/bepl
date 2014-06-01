@@ -46,19 +46,27 @@ class Finder {
         {
             list($internal, $user) = array_values(get_defined_functions());
             $ids = array_merge($internal, $user, get_declared_classes());
+
+            return $this->fuzzy->search($ids, $notation['name'], 7);
         }
-        else
+
+        $transformer = function(ReflectionMethod $method)
         {
-            $transformer = function(ReflectionMethod $method)
-            {
-                return $method->getName();
-            };
+            return $method->getName();
+        };
 
-            $ids = (new ReflectionClass($notation['on']))->getMethods();
-            $ids = array_map($transformer, $ids);
+        $ids = (new ReflectionClass($notation['on']))->getMethods();
+
+        $result = $this->fuzzy->search(
+            array_map($transformer, $ids), $notation['name'], 7
+        );
+
+        foreach ($result as $key => $value)
+        {
+            $result[$key] = $notation['on'].'::'.$value;
         }
 
-        return $this->fuzzy->search($ids, $notation['name'], 7);
+        return $result;
     }
 
 }

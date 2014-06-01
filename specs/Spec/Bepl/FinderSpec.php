@@ -41,7 +41,7 @@ class FinderSpec extends ObjectBehavior {
         $fuzzy->search(Argument::type('array'), 'c', Argument::type('integer'))
               ->willReturn(['close']);
 
-        $this->find('ZipArchive::c')->shouldReturn(['close']);
+        $this->find('ZipArchive::c')->shouldReturn(['ZipArchive::close']);
     }
 
 }
