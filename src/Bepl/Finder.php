@@ -32,14 +32,16 @@ class Finder {
     }
 
     /**
-     * Find first 5 matches (approximate searching).
+     * Find matching identificators (approximate searching).
      *
      * @param string $notation
      * @return array
      */
     public function find($notation)
     {
-        return $this->fuzzy->search(get_defined_functions(), $notation, 5);
+        list($internal, $user) = array_values(get_defined_functions());
+
+        return $this->fuzzy->search(array_merge($internal, $user), $notation, 5);
     }
 
 }

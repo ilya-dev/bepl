@@ -116,10 +116,7 @@ class InputListener {
      */
     protected function registerCompletionHandler()
     {
-        readline_completion_function(function($input)
-        {
-            return [$input, 'bar'];
-        });
+        readline_completion_function([$this->finder, 'find']);
     }
 
 }
