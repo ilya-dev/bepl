@@ -22,4 +22,15 @@ class Finder {
         $this->fuzzy = $fuzzy;
     }
 
+    /**
+     * Find first 5 matches (approximate searching).
+     *
+     * @param string $notation
+     * @return array
+     */
+    public function find($notation)
+    {
+        return $this->fuzzy->search(get_defined_functions(), $notation, 5);
+    }
+
 }
