@@ -9,4 +9,9 @@ class DocReaderSpec extends ObjectBehavior {
         $this->shouldHaveType('Bepl\DocReader');
     }
 
+    function it_reads_documentation()
+    {
+
+    }
+
 }
