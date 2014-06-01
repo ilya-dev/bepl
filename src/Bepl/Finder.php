@@ -1,6 +1,7 @@
 <?php namespace Bepl;
 
 use Fuzzy\Fuzzy;
+use ReflectionClass, ReflectionMethod;
 
 class Finder {
 
@@ -41,9 +42,21 @@ class Finder {
     {
         $notation = $this->notation->parse($notation);
 
-        list($internal, $user) = array_values(get_defined_functions());
+        if ($notation['type'] == 'function')
+        {
+            list($internal, $user) = array_values(get_defined_functions());
+            $ids = array_merge($internal, $user, get_declared_classes());
+        }
+        else
+        {
+            $transformer = function(ReflectionMethod $method)
+            {
+                return $method->getName();
+            };
 
-        $ids = array_merge($internal, $user, get_declared_classes());
+            $ids = (new ReflectionClass($notation['on']))->getMethods();
+            $ids = array_map($transformer, $ids);
+        }
 
         return $this->fuzzy->search($ids, $notation['name'], 7);
     }

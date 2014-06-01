@@ -30,4 +30,18 @@ class FinderSpec extends ObjectBehavior {
         $this->find('tri')->shouldReturn(['trim']);
     }
 
+    function it_handles_complicated_identificators(Fuzzy $fuzzy, NotationParser $notation)
+    {
+        $notation->parse('ZipArchive::c')->willReturn([
+            'on'   => 'ZipArchive',
+            'name' => 'c',
+            'type' => 'method'
+        ]);
+
+        $fuzzy->search(Argument::type('array'), 'c', Argument::type('integer'))
+              ->willReturn(['close']);
+
+        $this->find('ZipArchive::c')->shouldReturn(['close']);
+    }
+
 }
