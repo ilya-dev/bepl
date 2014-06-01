@@ -12,14 +12,23 @@ class Finder {
     protected $fuzzy;
 
     /**
+     * The NotationParser instance.
+     *
+     * @var NotationParser
+     */
+    protected $notation;
+
+    /**
      * The constructor.
      *
      * @param Fuzzy $fuzzy
+     * @param NotationParser $notation
      * @return Finder
      */
-    public function __construct(Fuzzy $fuzzy)
+    public function __construct(Fuzzy $fuzzy, NotationParser $notation)
     {
-        $this->fuzzy = $fuzzy;
+        $this->fuzzy    = $fuzzy;
+        $this->notation = $notation;
     }
 
     /**

@@ -2,12 +2,13 @@
 
 use PhpSpec\ObjectBehavior, Prophecy\Argument;
 use Fuzzy\Fuzzy;
+use Bepl\NotationParser;
 
 class FinderSpec extends ObjectBehavior {
 
-    function let(Fuzzy $fuzzy)
+    function let(Fuzzy $fuzzy, NotationParser $notation)
     {
-        $this->beConstructedWith($fuzzy);
+        $this->beConstructedWith($fuzzy, $notation);
     }
 
     function it_is_initializable()
