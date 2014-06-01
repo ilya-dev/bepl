@@ -12,12 +12,21 @@ class NotationParser {
     {
         if (strpos($notation, '::') === false)
         {
-            return ['name' => $notation];
+            return ['on' => null, 'name' => $notation, 'type' => 'function'];
         }
+
+        $type = 'method';
 
         list($on, $name) = explode('::', $notation);
 
-        return compact('on', 'name');
+        if (strpos($name, '$') === 0)
+        {
+            $type = 'property';
+
+            $name = substr($name, 1);
+        }
+
+        return compact('on', 'name', 'type');
     }
 
 }
