@@ -43,9 +43,9 @@ class Finder {
 
         list($internal, $user) = array_values(get_defined_functions());
 
-        $identificators = array_merge($internal, $user);
+        $ids = array_merge($internal, $user, get_declared_classes());
 
-        return $this->fuzzy->search($identificators, $notation['name'], 5);
+        return $this->fuzzy->search($ids, $notation['name'], 7);
     }
 
 }
