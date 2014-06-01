@@ -17,6 +17,13 @@ class InputListener {
     protected $evaluator;
 
     /**
+     * The Finder instance.
+     *
+     * @var Finder
+     */
+    protected $finder;
+
+    /**
      * Whether to log your actions.
      *
      * @var boolean
@@ -28,13 +35,16 @@ class InputListener {
      *
      * @param HistoryManager $manager
      * @param EvalWorker $evaluator
+     * @param Finder $finder
      * @return InputListener
      */
-    public function __construct(HistoryManager $manager, EvalWorker $evaluator)
+    public function __construct(
+        HistoryManager $manager, EvalWorker $evaluator, Finder $finder
+    )
     {
-        $this->manager = $manager;
-
+        $this->manager   = $manager;
         $this->evaluator = $evaluator;
+        $this->finder    = $finder;
 
         $this->registerCompletionHandler();
     }

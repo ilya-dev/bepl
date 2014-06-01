@@ -1,13 +1,13 @@
 <?php namespace Spec\Bepl;
 
 use PhpSpec\ObjectBehavior;
-use Bepl\HistoryManager, Bepl\EvalWorker;
+use Bepl\HistoryManager, Bepl\EvalWorker, Bepl\Finder;
 
 class InputListenerSpec extends ObjectBehavior {
 
-    function let(HistoryManager $manager, EvalWorker $evaluator)
+    function let(HistoryManager $manager, EvalWorker $evaluator, Finder $finder)
     {
-        $this->beConstructedWith($manager, $evaluator);
+        $this->beConstructedWith($manager, $evaluator, $finder);
     }
 
     function it_is_initializable()
