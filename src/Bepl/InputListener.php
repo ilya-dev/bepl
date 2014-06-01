@@ -35,6 +35,8 @@ class InputListener {
         $this->manager = $manager;
 
         $this->evaluator = $evaluator;
+
+        $this->registerCompletionHandler();
     }
 
     /**
@@ -95,6 +97,19 @@ class InputListener {
     protected function displayResult($result)
     {
         echo $result ? ($result.PHP_EOL) : null;
+    }
+
+    /**
+     * Set what will be fired when the user hits Tab.
+     *
+     * @return void
+     */
+    protected function registerCompletionHandler()
+    {
+        readline_completion_function(function($input)
+        {
+            return [$input, 'bar'];
+        });
     }
 
 }
