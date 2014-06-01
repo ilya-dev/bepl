@@ -1,8 +1,14 @@
 <?php namespace Spec\Bepl;
 
 use PhpSpec\ObjectBehavior;
+use Block\Block, Bepl\NotationParser;
 
 class DocReaderSpec extends ObjectBehavior {
+
+    function let(Block $block, NotationParser $notation)
+    {
+        $this->beConstructedWith($block, $notation);
+    }
 
     function it_is_initializable()
     {
