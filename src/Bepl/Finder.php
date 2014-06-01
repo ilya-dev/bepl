@@ -39,9 +39,13 @@ class Finder {
      */
     public function find($notation)
     {
+        $notation = $this->notation->parse($notation);
+
         list($internal, $user) = array_values(get_defined_functions());
 
-        return $this->fuzzy->search(array_merge($internal, $user), $notation, 5);
+        $identificators = array_merge($internal, $user);
+
+        return $this->fuzzy->search($identificators, $notation['name'], 5);
     }
 
 }

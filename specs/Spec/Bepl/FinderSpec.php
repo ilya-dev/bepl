@@ -16,12 +16,18 @@ class FinderSpec extends ObjectBehavior {
         $this->shouldHaveType('Bepl\Finder');
     }
 
-    function it_returns_an_array_of_matches(Fuzzy $fuzzy)
+    function it_returns_an_array_of_matches(Fuzzy $fuzzy, NotationParser $notation)
     {
-        $fuzzy->search(Argument::type('array'), 'foo', Argument::type('integer'))
-              ->willReturn(['foobar', 'foobaz']);
+        $notation->parse('tri')->willReturn([
+            'on'   => null,
+            'name' => 'tri',
+            'type' => 'function'
+        ]);
 
-        $this->find('foo')->shouldReturn(['foobar', 'foobaz']);
+        $fuzzy->search(Argument::type('array'), 'tri', Argument::type('integer'))
+              ->willReturn(['trim']);
+
+        $this->find('tri')->shouldReturn(['trim']);
     }
 
 }
