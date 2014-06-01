@@ -2,7 +2,7 @@
 
 ## Features list
 
-+ Works out-of-the-box: download the PHAR and you are ready to go.
++ Works out-of-the-box: download the PHAR and you are ready to go. [done]
 + Colored output, custom themes are supported!
 + Auto-completion for both standard and user-defined symbols.
 + Documentation for both standard and user-defined symbols.

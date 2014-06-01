@@ -1,1 +1,19 @@
-TODO: add the actual configuration for Box
+{
+    "stub": true, 
+    "output": "bepl.phar",
+    "main": "bin/bepl",
+    "files": ["license"],
+    "finder" : [
+        {
+            "name": "*.php",
+            "exclude": [
+                "phpspec"
+            ],
+            "in": "vendor"
+        },
+        {
+            "name": "*.php",
+            "in": "src"
+        }
+    ]
+}

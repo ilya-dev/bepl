@@ -1,7 +1,15 @@
 #!/usr/bin/env php
 <?php
 
-// TODO: add support for PHARs
-require __DIR__.'/../vendor/autoload.php';
+function requireIfExists($file)
+{
+    if (file_exists($file))
+    {
+        require $file;
+    }
+}
+
+requireIfExists(__DIR__.'/../vendor/autoload.php');
+requireIfExists(__DIR__.'/../../../autoload.php');
 
 Bepl\Bepl::create('Bepl\InputListener')->listen();
