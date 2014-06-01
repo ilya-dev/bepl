@@ -3,8 +3,8 @@
 ## Features list
 
 + Can work out-of-the-box: download the PHAR and you are ready to go. [done]
-+ Colored output, custom themes are supported!
-+ Auto-completion for both standard and user-defined symbols.
++ Colored output.
++ Autocompletion for both standard and user-defined symbols. [done]
 + Documentation for user-defined symbols.
 + Logging all your input into a file, can be disabled. [done]
 
