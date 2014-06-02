@@ -39,7 +39,11 @@ class DocReader {
      */
     public function read($notation)
     {
+        $notation = $this->notation->parse($notation);
 
+        $this->block->setObject(new $notation['on']);
+
+        return (string) $this->block->method($notation['name']);
     }
 
 }
