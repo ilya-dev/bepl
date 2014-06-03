@@ -48,6 +48,10 @@ class DocReader {
                 $this->block->setObject(new $notation['on']);
                 return (string) $this->block->method($notation['name']);
 
+            case 'property':
+                $this->block->setObject(new $notation['on']);
+                return (string) $this->block->property($notation['name']);
+
             case 'function':
                 return $this->block->reflector(new ReflectionFunction($notation['name']));
         }

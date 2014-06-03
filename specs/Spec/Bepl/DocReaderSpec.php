@@ -38,10 +38,23 @@ class DocReaderSpec extends ObjectBehavior {
         ]);
 
         $block->setObject(Argument::type('Bepl\Testing\Foo'))->shouldBeCalled();
-
         $block->method('bar')->willReturn('baz');
 
         $this->read('Bepl\Testing\Foo::bar')->shouldReturn('baz');
+    }
+
+    function it_reads_documentation_3(Block $block, NotationParser $notation)
+    {
+        $notation->parse('Bepl\Testing\Foo::$wow')->willReturn([
+            'on'   => 'Bepl\Testing\Foo',
+            'name' => 'wow',
+            'type' => 'property'
+        ]);
+
+        $block->setObject(Argument::type('Bepl\Testing\Foo'))->shouldBeCalled();
+        $block->property('wow')->willReturn('baz');
+
+        $this->read('Bepl\Testing\Foo::$wow')->shouldReturn('baz');
     }
 
 }
@@ -49,6 +62,11 @@ class DocReaderSpec extends ObjectBehavior {
 namespace Bepl\Testing;
 
 class Foo {
+
+    /**
+     * baz
+     */
+    public $wow;
 
     /**
      * baz
