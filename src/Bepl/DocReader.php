@@ -45,15 +45,14 @@ class DocReader {
         switch ($notation['type'])
         {
             case 'method':
-                $this->block->setObject(new $notation['on']);
-                return (string) $this->block->method($notation['name']);
-
             case 'property':
                 $this->block->setObject(new $notation['on']);
-                return (string) $this->block->property($notation['name']);
+                return (string) $this->block->{$notation['type']}($notation['name']);
 
             case 'function':
-                return $this->block->reflector(new ReflectionFunction($notation['name']));
+                return $this->block->reflector(
+                    new ReflectionFunction($notation['name'])
+                );
         }
     }
 
