@@ -17,16 +17,16 @@ class DocReaderSpec extends ObjectBehavior {
 
     function it_reads_documentation_1(Block $block, NotationParser $notation)
     {
-        $notation->parse('foo')->willReturn([
+        $notation->parse('trim')->willReturn([
             'on'   => null,
-            'name' => 'foo',
+            'name' => 'trim',
             'type' => 'function'
         ]);
 
         $block->reflector(Argument::type('ReflectionFunction'))
               ->willReturn('baz');
 
-        $this->read('foo')->shouldReturn('baz');
+        $this->read('trim')->shouldReturn('baz');
     }
 
     function it_reads_documentation_2(Block $block, NotationParser $notation)

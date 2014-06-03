@@ -1,6 +1,7 @@
 <?php namespace Bepl;
 
 use Block\Block;
+use ReflectionFunction;
 
 class DocReader {
 
@@ -41,9 +42,15 @@ class DocReader {
     {
         $notation = $this->notation->parse($notation);
 
-        $this->block->setObject(new $notation['on']);
+        switch ($notation['type'])
+        {
+            case 'method':
+                $this->block->setObject(new $notation['on']);
+                return (string) $this->block->method($notation['name']);
 
-        return (string) $this->block->method($notation['name']);
+            case 'function':
+                return $this->block->reflector(new ReflectionFunction($notation['name']));
+        }
     }
 
 }
