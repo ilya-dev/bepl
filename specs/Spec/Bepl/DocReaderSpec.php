@@ -15,7 +15,12 @@ class DocReaderSpec extends ObjectBehavior {
         $this->shouldHaveType('Bepl\DocReader');
     }
 
-    function it_reads_documentation(Block $block, NotationParser $notation)
+    function it_reads_documentation_1(Block $block, NotationParser $notation)
+    {
+
+    }
+
+    function it_reads_documentation_2(Block $block, NotationParser $notation)
     {
         $notation->parse('Bepl\Testing\Foo::bar')->willReturn([
             'on'   => 'Bepl\Testing\Foo',
