@@ -119,4 +119,16 @@ class InputListener {
         readline_completion_function([$this->finder, 'find']);
     }
 
+    /**
+     * Determine whether the line is matching a specific pattern.
+     * Which is used as a documentation marker.
+     *
+     * @param string $line
+     * @return boolean
+     */
+    protected function isDoc($line)
+    {
+        return preg_match('/^doc\s(.+)$/', $line);
+    }
+
 }
